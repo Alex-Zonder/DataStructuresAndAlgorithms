@@ -11,17 +11,17 @@
     /*
      * Рекурсивная функция
      */
-    static public function countRecursive($x) {
+    public static function countRecursive(int $x): int {
         return 
             $x < 2
             ? 1
-            : $x * Factorial::countRecursive($x - 1);
+            : $x * self::countRecursive($x - 1);
     }
 
     /*
      * Функция с циклом
      */
-    static public function countWhile($x) {
+    public static function countWhile(int $x): int {
         $result = 1;
         for ($y = 2; $y <= $x; $y++) {
             $result *= $y;
@@ -31,5 +31,5 @@
 }
 
 
-echo "Recursive:\t".Factorial::countRecursive(-1)."\n";
-echo "While:\t\t".Factorial::countWhile(-1)."\n";
+echo "Recursive:\t".Factorial::countRecursive(7)."\n";
+echo "While:\t\t".Factorial::countWhile(7)."\n";

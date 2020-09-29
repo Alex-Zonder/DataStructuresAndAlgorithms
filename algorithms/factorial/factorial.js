@@ -23,7 +23,7 @@ class Factorial {
         return result;
     }
 }
-var factorial = new Factorial;
+const factorial = new Factorial;
 
 console.log('Recursive:\t' + factorial.countRecursive(7));
 console.log('While:\t\t' + factorial.countWhile(7));

@@ -11,27 +11,40 @@
     /*
      * Рекурсивная функция
      */
-    protected $fibArr = [0, 1];
-    static public function countRecursive($x) {
-        if ($x < 0) return -1;
+    public static function countRecursive(int $x): int {
         if ($x < 2) return $x;
-        $fibArr[$x] = $x + Fibonacci::countRecursive($x - 1);
 
-        return $fibArr[$x];
+        return self::countRecursive($x - 1) + self::countRecursive($x - 2);
+    }
+
+    /*
+     * Рекурсивная функция с мемоизацией
+     */
+    public static $fibMemo = [];
+    public static function countRecursiveMemo(int $x): int {
+        if (isset(self::$fibMemo[$x])) return self::$fibMemo[$x];
+
+        if ($x < 2) return $x;
+
+        self::$fibMemo[$x] = self::countRecursiveMemo($x - 1) + self::countRecursiveMemo($x - 2);
+ 
+        return self::$fibMemo[$x];
     }
 
     /*
      * Функция с циклом
      */
-    static public function countWhile($x) {
-        if ($x < 0) return -1;
+    public static function countWhile(int $x): int {
         $result = [0, 1];
-        for ($y = 2; $y <= $x; $y++) {
-            $result[] = $result[$y - 1] + $result[$y - 2];
-        } 
-        return $result[count($result) - 1];
+        for ($y = 2; $y <= $x; $y++)
+            $result[$y] = $result[$y - 1] + $result[$y - 2];
+
+        return $result[$x];
     }
 }
 
-echo "Recursive:\t".Fibonacci::countRecursive(5)."\n";
-echo "While:\t\t".Fibonacci::countWhile(5)."\n";
+
+
+echo "Recursive:\t".Fibonacci::countRecursive(40)."\n";
+echo "RecursiveMemo:\t".Fibonacci::countRecursiveMemo(40)."\n";
+echo "While:\t\t".Fibonacci::countWhile(40)."\n";
