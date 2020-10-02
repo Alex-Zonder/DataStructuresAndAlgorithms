@@ -1,6 +1,4 @@
 <?php
-#include 'vendor/autoload.php';
-
 use PHPUnit\Framework\TestCase;
 
 use Algorithms\Backpack\Backpack;
@@ -9,16 +7,15 @@ class BackpackTest extends TestCase
 {
     public function testExample()
     {
-        //$this->assertTrue(true);
-
         $backpack = new Backpack();
-        // Test class calcSumm is exists
+
+        // Test method calcSumm is exists
         $this->assertTrue(
             method_exists($backpack, 'calcSumm'), 
             'Class does not have method calcSumm'
         );
 
-        //var_dump($backpack->calcSumm);
+        // Test method calcSumm return 9
         $maxWeight = 10;
         $items = [
             ["weight" => 4, "price" => 3],

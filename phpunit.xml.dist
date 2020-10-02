@@ -3,10 +3,8 @@
     <testsuites>
         <testsuite name="Data structures and algorithms">
             <directory suffix="Test.php">Tests</directory>
-
-            <directory suffix="Test.php">Creational/*/Tests</directory>
-            <directory suffix="Test.php">More/*/Tests</directory>
-            <directory suffix="Test.php">Structural/*/Tests</directory>
+            <directory suffix="Test.php">Algorithms/*/Tests</directory>
+            <directory suffix="Test.php">Structures/*/Tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
