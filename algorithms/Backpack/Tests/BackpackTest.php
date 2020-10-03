@@ -1,13 +1,16 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
+use Algorithms\Sort\BoubleSort;
+use Algorithms\Sort\InsertSort;
 use Algorithms\Backpack\Backpack;
 
 class BackpackTest extends TestCase
 {
-    public function testExample()
+    public function testBackpack()
     {
-        $backpack = new Backpack();
+        $sort = new InsertSort();
+        $backpack = new Backpack($sort);
 
         // Test method calcSumm is exists
         $this->assertTrue(

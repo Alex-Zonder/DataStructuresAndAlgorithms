@@ -14,9 +14,6 @@
     },
     "minimum-stability": "dev",
     "autoload": {
-        "psr-0": {
-            "Algorithms": "Algorithms/"
-        },
         "classmap": ["Algorithms"]
     }
 }

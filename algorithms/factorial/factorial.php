@@ -1,4 +1,7 @@
 <?php
+
+namespace Algorithms\Factorial;
+
 /*
  * Вычисление факториала
  * 0, 1, 2, 3,  4,   5,   6,    7,     8,      9,      10, ..
@@ -29,7 +32,3 @@
         return $result;
     }
 }
-
-
-echo "Recursive:\t".Factorial::countRecursive(7)."\n";
-echo "While:\t\t".Factorial::countWhile(7)."\n";
