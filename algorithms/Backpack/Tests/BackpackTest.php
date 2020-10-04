@@ -3,13 +3,14 @@ use PHPUnit\Framework\TestCase;
 
 use Algorithms\Sort\BoubleSort;
 use Algorithms\Sort\InsertSort;
+use Algorithms\Sort\MergeSort;
 use Algorithms\Backpack\Backpack;
 
 class BackpackTest extends TestCase
 {
     public function testBackpack()
     {
-        $sort = new InsertSort();
+        $sort = new MergeSort();
         $backpack = new Backpack($sort);
 
         // Test method calcSumm is exists
