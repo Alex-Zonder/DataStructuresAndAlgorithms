@@ -1,7 +1,7 @@
 <?php
 namespace Algorithms\Sort;
 
-/*
+/**
  * Сортировка слиянием
  * 
  * Сложность	Наилучший случай	В среднем	Наихудший случай
@@ -10,8 +10,11 @@ namespace Algorithms\Sort;
  */
 
 
-class MergeSort implements SortInterface {
-    // Сортировка одномерного массива чисел
+class MergeSort implements SortInterface
+{
+    /**
+     * Сортировка одномерного массива чисел
+     */
     public function sort(array $items, string $statement = "<"): array {
         if (count($items) <= 1)
             return $items;
@@ -50,8 +53,9 @@ class MergeSort implements SortInterface {
         return $items;
     }
 
-
-    // Сортировка item'ов по ключу
+    /**
+     * Сортировка ассоциативного массива по ключу
+     */
     public function sortByKey(array $items, string $key, string $statement = "<"): array {
         if (count($items) <= 1)
             return $items;

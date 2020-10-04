@@ -1,7 +1,7 @@
 <?php
 namespace Algorithms\Sort;
 
-/*
+/**
  * Сортировка пузырьком
  * 
  * Сложность	Наилучший случай	В среднем	Наихудший случай
@@ -10,8 +10,11 @@ namespace Algorithms\Sort;
  */
 
 
-class BoubleSort implements SortInterface {
-    // Сортировка одномерного массива чисел
+class BoubleSort implements SortInterface
+{
+    /**
+     * Сортировка одномерного массива чисел
+     */
     public function sort(array $items, string $statement = "<"): array {
         $swapped = false;
         do {
@@ -27,7 +30,10 @@ class BoubleSort implements SortInterface {
         } while($swapped !== false);
         return $items;
     }
-    // Сортировка item'ов по ключу
+
+    /**
+     * Сортировка ассоциативного массива по ключу
+     */
     public function sortByKey(array $items, string $key, string $statement = "<"): array {
         $swapped = false;
         do {

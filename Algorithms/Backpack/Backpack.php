@@ -1,7 +1,7 @@
 <?php
 namespace Algorithms\Backpack;
 
-/*
+/**
  *
  * Задача о рюкзаке
  * 
@@ -12,7 +12,7 @@ namespace Algorithms\Backpack;
  * 
  */
 
-/*
+/**
  *
  * Жадный алгоритм
  * 
@@ -27,14 +27,15 @@ namespace Algorithms\Backpack;
 use Algorithms\Sort\SortInterface;
 
 
-class Backpack {
+class Backpack
+{
     protected $sort;
 
     public function __construct(SortInterface $sort) {
         $this->sort = $sort;
     }
 
-    /*
+    /**
      * Собираем рюкзак (результат: общая стоимость собранных предметов)
      */
     public function calcSumm(int $maxWeight, array $items) {

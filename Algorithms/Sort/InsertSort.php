@@ -1,7 +1,7 @@
 <?php
 namespace Algorithms\Sort;
 
-/*
+/**
  * Сортировка вставками
  * 
  * Сложность	Наилучший случай	В среднем	Наихудший случай
@@ -10,8 +10,11 @@ namespace Algorithms\Sort;
  */
 
 
-class InsertSort implements SortInterface {
-    // Сортировка одномерного массива чисел
+class InsertSort implements SortInterface
+{
+    /**
+     * Сортировка одномерного массива чисел
+     */
     public function sort(array $items, string $statement = "<"): array {
         for ($i = 1; $i < count($items); $i++) {
             if (($statement == "<" && $items[$i - 1] > $items[$i])
@@ -31,7 +34,10 @@ class InsertSort implements SortInterface {
 
         return $items;
     }
-    // Сортировка item'ов по ключу
+
+    /**
+     * Сортировка ассоциативного массива по ключу
+     */
     public function sortByKey(array $items, string $key, string $statement = "<"): array {
         for ($i = 1; $i < count($items); $i++) {
             if (($statement == "<" && $items[$i - 1][$key] > $items[$i][$key])
