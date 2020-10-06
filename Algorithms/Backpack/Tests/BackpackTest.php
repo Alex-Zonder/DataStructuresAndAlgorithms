@@ -13,13 +13,13 @@ class BackpackTest extends TestCase
         $sort = new MergeSort();
         $backpack = new Backpack($sort);
 
-        // Test method calcSumm is exists
+        // Test method calcPriceGreedy is exists
         $this->assertTrue(
-            method_exists($backpack, 'calcSumm'), 
-            'Class does not have method calcSumm'
+            method_exists($backpack, 'calcPriceGreedy'), 
+            'Class does not have method calcPriceGreedy'
         );
 
-        // Test method calcSumm return 9
+        // Test method calcPriceGreedy return 9
         $maxWeight = 10;
         $items = [
             ["weight" => 4, "price" => 3],
@@ -27,6 +27,24 @@ class BackpackTest extends TestCase
             ["weight" => 2, "price" => 3],
             ["weight" => 2, "price" => 2]
         ];
-        $this->assertSame(9, $backpack->calcSumm($maxWeight, $items));
+        $this->assertSame(9, $backpack->calcPriceGreedy($maxWeight, $items));
+
+
+
+        // Test method calcPriceBruteForce is exists
+        $this->assertTrue(
+            method_exists($backpack, 'calcPriceBruteForce'), 
+            'Class does not have method calcPriceBruteForce'
+        );
+
+        // Test method calcPriceBruteForce return 10
+        $maxWeight = 10;
+        $items = [
+            ["weight" => 4, "price" => 3],
+            ["weight" => 3, "price" => 4],
+            ["weight" => 2, "price" => 3],
+            ["weight" => 2, "price" => 2]
+        ];
+        $this->assertSame(10, $backpack->calcPriceBruteForce($maxWeight, $items));
     }
 }
