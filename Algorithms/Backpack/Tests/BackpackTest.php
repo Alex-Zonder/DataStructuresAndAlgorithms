@@ -8,43 +8,65 @@ use Algorithms\Backpack\Backpack;
 
 class BackpackTest extends TestCase
 {
-    public function testBackpack()
-    {
-        $sort = new MergeSort();
-        $backpack = new Backpack($sort);
+    public $sort = [];
+    public $backpack = [];
 
+    // public $maxWeight = 10;
+    // public $items = [
+    //     ["weight" => 5, "price" => 1],
+    //     ["weight" => 3, "price" => 2],
+    //     ["weight" => 2, "price" => 3],
+    //     ["weight" => 1, "price" => 3],
+    //     ["weight" => 1, "price" => 5],
+    //     ["weight" => 5, "price" => 4],
+    // ];
+    public $maxWeight = 10;
+    public $items = [
+        ["weight" => 4, "price" => 3],
+        ["weight" => 3, "price" => 4],
+        ["weight" => 2, "price" => 3],
+        ["weight" => 2, "price" => 2]
+    ];
+
+    protected function setUp(): void
+    {
+        $this->sort = new MergeSort();
+        $this->backpack = new Backpack($this->sort);
+    }
+
+
+    public function testGreedy()
+    {
         // Test method calcPriceGreedy is exists
         $this->assertTrue(
-            method_exists($backpack, 'calcPriceGreedy'), 
+            method_exists($this->backpack, 'calcPriceGreedy'),
             'Class does not have method calcPriceGreedy'
         );
-
-        // Test method calcPriceGreedy return 9
-        $maxWeight = 10;
-        $items = [
-            ["weight" => 4, "price" => 3],
-            ["weight" => 3, "price" => 4],
-            ["weight" => 2, "price" => 3],
-            ["weight" => 2, "price" => 2]
-        ];
-        $this->assertSame(9, $backpack->calcPriceGreedy($maxWeight, $items));
+        // Test return
+        $this->assertSame(9, $this->backpack->calcPriceGreedy($this->maxWeight, $this->items));
+    }
 
 
-
+    public function testBruteForce()
+    {
         // Test method calcPriceBruteForce is exists
         $this->assertTrue(
-            method_exists($backpack, 'calcPriceBruteForce'), 
+            method_exists($this->backpack, 'calcPriceBruteForce'),
             'Class does not have method calcPriceBruteForce'
         );
+        // Test return
+        $this->assertSame(10, $this->backpack->calcPriceBruteForce($this->maxWeight, $this->items));
+    }
 
-        // Test method calcPriceBruteForce return 10
-        $maxWeight = 10;
-        $items = [
-            ["weight" => 4, "price" => 3],
-            ["weight" => 3, "price" => 4],
-            ["weight" => 2, "price" => 3],
-            ["weight" => 2, "price" => 2]
-        ];
-        $this->assertSame(10, $backpack->calcPriceBruteForce($maxWeight, $items));
+
+    public function testBranchAndBound()
+    {
+        // Test method calcPriceBranchAndBound is exists
+        $this->assertTrue(
+            method_exists($this->backpack, 'calcPriceBranchAndBound'),
+            'Class does not have method calcPriceBranchAndBound'
+        );
+        // Test return
+        $this->assertSame(10, $this->backpack->calcPriceBranchAndBound($this->maxWeight, $this->items));
     }
 }
